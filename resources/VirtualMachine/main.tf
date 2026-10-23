@@ -48,8 +48,8 @@ resource "azurerm_virtual_machine" "vm" {
 
   os_profile {
   computer_name  = each.value.os.computer_name
-  admin_username = each.value.os.admin_username
-  admin_password = each.value.os.admin_password
+  admin_username = data.azurerm_key_vault_secret.example1.value
+  admin_password = data.azurerm_key_vault_secret.example11.value
 }
 
   os_profile_linux_config {
